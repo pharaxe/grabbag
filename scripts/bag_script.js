@@ -1,11 +1,12 @@
-var requestCategories = new Request.JSON({
+var requestCategories = new Request.JSONP({
    url: 'https://www.ifixit.com/api/2.0/categories',
-   onSuccess: function(responseJSON, responseText) {
-      addDevicesRecursively($('devices'), responseJSON);
+   onComplete: function(data) {
+      console.log(data);
+      //addDevicesRecursively($('devices'), data);
    }
 });
 
-requestCategories.get();
+requestCategories.send();
 
 function addDevicesRecursively(parentElement, hierarchy) {
    if (typeof hierarchy === 'string') {
