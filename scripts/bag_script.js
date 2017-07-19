@@ -1,5 +1,6 @@
 var requestCategories = new Request.JSONP({
    url: 'https://www.ifixit.com/api/2.0/categories',
+   method: 'get',
    onComplete: function(data) {
       console.log(data);
       //addDevicesRecursively($('devices'), data);
@@ -24,3 +25,38 @@ function addDevicesRecursively(parentElement, hierarchy) {
       parentElement.grab(deviceList);
    }
 }
+
+var cache = [];
+
+var getPage = function(name) {
+   if (cache[name] != undefined) {
+      return cache[name];
+   } else {
+
+   }
+}
+
+var Device = new Class({
+   initialize: function(name) {
+      this.wiki = null;
+      this.guides = [];
+      this.teardown = null;
+   }
+});
+
+var Page = new Class({
+   initialize: function(name) {
+      this.name = name;
+      this.image = null;
+      this.url = null;
+   },
+
+   getImageUrl: function (size = 'thumbnail') {
+       
+   }
+
+
+});
+
+
+
